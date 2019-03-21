@@ -1,0 +1,21 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Durian.Web", "Durian.Web\Durian.Web.csproj", "{7197B528-68FA-4E3F-87AF-A27629102471}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{9B5FD669-40DF-42B4-B275-028303CF2513}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7197B528-68FA-4E3F-87AF-A27629102471}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7197B528-68FA-4E3F-87AF-A27629102471}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7197B528-68FA-4E3F-87AF-A27629102471}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7197B528-68FA-4E3F-87AF-A27629102471}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7197B528-68FA-4E3F-87AF-A27629102471} = {9B5FD669-40DF-42B4-B275-028303CF2513}
+	EndGlobalSection
+EndGlobal
