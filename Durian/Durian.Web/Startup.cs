@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CacheManager.Core;
 using Durian.Core.Repository;
 using Durian.Entity;
 using Durian.Repository;
@@ -48,6 +49,19 @@ namespace Durian.Web
 
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<IRoleRepository, RoleRepository>();
+
+            #region Cache
+
+            // Cache Config
+            services.AddCacheManagerConfiguration(builder =>
+            {
+                builder.WithMicrosoftMemoryCacheHandle("DurianConfig")
+                    .WithExpiration(ExpirationMode.Absolute, new TimeSpan(0, 0, 10, 0));
+            });
+
+            services.AddCacheManager();
+
+            #endregion
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

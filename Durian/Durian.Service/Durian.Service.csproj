@@ -7,6 +7,11 @@
     <ItemGroup>
       <ProjectReference Include="..\Durian.Core\Durian.Core.csproj" />
       <ProjectReference Include="..\Durian.Repository\Durian.Repository.csproj" />
+      <ProjectReference Include="..\Durian.Web.Common\Durian.Web.Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CacheManager.Core" Version="1.2.0" />
     </ItemGroup>
 
 </Project>
