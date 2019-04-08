@@ -17,11 +17,6 @@ namespace Durian.Service.Role
 
         public Entity.Role GetRoleByGuid(Guid guid)
         {
-            using (_unitOfWork.SaveChangesAsync())
-            {
-                
-            }
-            
             return _roleRepository.Find(guid);
         }
         
