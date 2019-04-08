@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Durian.Core.Repository;
+using Durian.Entity;
+using Durian.Repository;
+using Durian.Service.Role;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,7 +36,19 @@ namespace Durian.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<ApplicationDbContext>(p =>
+                    p.UseSqlServer(Configuration["ConnectionString:Application"],
+                        o => o.MigrationsAssembly("Durian.Web")))
+                .AddUnitOfWork<ApplicationDbContext>();
 
+            services.AddScoped<DbContext, ApplicationDbContext>();
+
+            services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
+
+
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
