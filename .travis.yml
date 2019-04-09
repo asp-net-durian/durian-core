@@ -1,11 +1,21 @@
+dist: bionic
 language: csharp
 solution: Durian/Durian.sln.sln
 mono: none
-dotnet: 2.2.0
-install:
- - dotnet restore
-script:
- - dotnet build
-global:
+dotnet: 2.2.105
+env:
+  global:
     - DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
-    - DOTNET_CLI_TELEMETRY_OPTOUT=1
+    - DOTNET_CLI_TELEMETRY_OPTOUT=true
+stages:
+  - build
+  - publish
+jobs:
+  include:
+    - stage: build
+      name: build solution
+      script: dotnet restore && dotnet build
+    - stage: publish
+      name: publish-packages
+      if: tag IS present
+      script: ./publish-packages.sh "$NUGET_SOURCE" "$ETDB_NUGET_APIKEY" "$TRAVIS_TAG"
