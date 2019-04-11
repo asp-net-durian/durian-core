@@ -1,8 +1,7 @@
 dist: bionic
 language: csharp
-solution: /Durian/Durian.sln
 mono: none
-dotnet: 2.2.105
+dotnet: 2.2.4
 env:
   global:
     - DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
