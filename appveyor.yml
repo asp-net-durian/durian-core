@@ -12,10 +12,10 @@ before_build:
   # Display .NET Core version
   - cmd: dotnet --version
   # Display minimal restore text
-  - cmd: dotnet restore ./Durian/Durian.Web.Framework/Durian.Web.Framework.csproj --verbosity m
+  - cmd: dotnet restore ./Durian/Durian.sln --verbosity m
 build_script:
   # output will be in ./src/bin/debug/netcoreapp1.1/publish
-  - cmd: dotnet publish ./Durian/Durian.Web.Framework/Durian.Web.Framework.csproj
+  - cmd: dotnet publish ./Durian/Durian.sln
 after_build:
   # For once the build has completed
 artifacts:
